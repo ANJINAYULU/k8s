@@ -1,0 +1,269 @@
+
+1. create the ec2 
+create the iam --> roles -> create a role
+(ec2)--> next permossion --> administractor Acess (next tags)
+Roll name (terraform-eks) --> create a role
+alltach to ec2
+goto action (security )modify iam role
+
+
+************ aws kubectl install ******
+--> (https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
+--> (curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/darwin/amd64/kubectl)
+--> ls -ltr (o/p:kubectl)
+-- > change the permission ::chmod 755 kubectl
+--> move the file : mv kubectl /usr/local/bin
+
+
+*********download terraform*****
+--> https://www.terraform.io/downloads.html
+--> select the os (Ex : Linux)
+--> terraform : wget https://releases.hashicorp.com/terraform/1.0.8/terraform_1.0.8_linux_amd64.zip
+--> unzip the file :unzip terraform_1.0.8_linux_amd64.zip
+--> delete the zip file :: rm -rf terraform_1.0.8_linux_amd64.zip 
+--> move the file ::mv terraform /usr/local/bin/
+--> to check the terraform version :: terraform --version(Terraform v1.0.8 on linux_amd64)
+*******terraform eks cluster learning*****
+---> (https://learn.hashicorp.com/tutorials/terraform/eks)
+
+Set up and initialize your Terraform workspace
+---> yum install git -y
+---> git clone https://github.com/hashicorp/learn-terraform-provision-eks-cluster
+---> cd learn-terraform-provision-eks-cluster
+---> terraform init -upgrade
+---> terraform init
+---> terraform plan
+----> terraform apply
+
+copy the config file ::::
+EX:
+
+
+
+1. create the ec2 
+create the iam --> roles -> create a role
+(ec2)--> next permossion --> administractor Acess (next tags)
+Roll name (terraform-eks) --> create a role
+alltach to ec2
+goto action (security )modify iam role
+
+
+************ aws kubectl install ******
+--> (https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
+--> (curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/darwin/amd64/kubectl)
+--> ls -ltr (o/p:kubectl)
+-- > change the permission ::chmod 755 kubectl
+--> move the file : mv kubectl /usr/local/bin
+*********download terraform*****
+--> https://www.terraform.io/downloads.html
+--> select the os (Ex : Linux)
+--> terraform : wget https://releases.hashicorp.com/terraform/1.0.8/terraform_1.0.8_linux_amd64.zip
+--> unzip the file :unzip terraform_1.0.8_linux_amd64.zip
+--> delete the zip filr :: rm -rf terraform_1.0.8_linux_amd64.zip 
+--> move the file ::mv terraform /usr/local/bin/
+--> to check the terraform version :: terraform --version(Terraform v1.0.8
+on linux_amd64)
+*******terraform eks cluster learning*****
+---> (https://learn.hashicorp.com/tutorials/terraform/eks)
+
+Set up and initialize your Terraform workspace
+---> yum install git -y
+---> git clone https://github.com/hashicorp/learn-terraform-provision-eks-cluster
+---> cd learn-terraform-provision-eks-cluster
+---> terraform init -upgrade
+---> terraform init
+---> terraform plan
+
+copy the config file ::::
+EX:
+
+
+
+apiVersion: v1
+preferences: {}
+kind: Config
+
+clusters:
+- cluster:
+    server: https://4768A788E83B86AAAD859F188FDFA934.gr7.us-east-2.eks.amazonaws.com
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUM1ekNDQWMrZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJeE1UQXdOREEzTURrMU5Wb1hEVE14TVRBd01qQTNNRGsxTlZvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTW4zCnk4bTBtYllQSjhDeXNIc09sL08zaTRTdGtuU0V4RXI1TGthcFpwU2FXTzc3TkFjNCtWOGtPSmpCMXBPVVJOWTMKR25VOEVVSGVGQm8rY0FIMVQ3YktHZjRBOVB6bzNEK25IUENrQy95a3FKMWozQTJkc1pPS0lmbmVmUWo5NDBQMApRbCs4OHJBcVFHOGlJWEVrblNUeThybWJRQ1RZL2Mwdi9CUHdpTStacHgzOVo0dVdqK3NDcENiQmhIaTgzeVA3CmRFemVrUjFMQVVlWlIzV1VPOHVLUElkbVdmZzVBN09leFhHSGJJUzRuRk9ZSUFVS2x2Z2NkTU90Z1p2OEpnay8KQlcreFVwWk11czRUMXNRaXF5YldUUC9XTkRKNlFiVXVSTHc5QWlqeUk5b044VzdDaFp5TDN5K2tCZk90a1FEawo4Tk8rMmtpeWZldzBvY3dWemljQ0F3RUFBYU5DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZQWS9VSjZBZWtybW9odWtLcnhWWFduTE82YXVNQTBHQ1NxR1NJYjMKRFFFQkN3VUFBNElCQVFDNkFYOG1rN2w2KzMyaWNGYjZEMEY2Y2YrbXJ5eTF3TzJieExZajVSQzRjcERZWk9TdQp5UHl0Y1BxcXZYbm9qVWxHQjlqS09Odm85M3ZEL25CNmFHTlpsM0plRTkxNmdBRGc3OEg1amk4MlUwYWNRcEtxClhJbVk1UkVoZ0hXaHBsenBLOVlDcmN2b2VCYUpqSlpFUk1hSWUxL0JlM0JkdUlDVk1Jc1pwazFUU0I1c1N6SHkKeVJvc0tGZ0dWS2NhbUNQSzZFVXpLZDdwLzRsTFlFaWx1dWhubys3SE9WN1FiRmxWZEwxRjkrbmUrMU13alVReApJaTByYlgzTUhUQ3orNENwcnE1ZmVYaVJqcjNmOXptL2NTNWFNaWNWNVdKdy96V21xVXZtVFBiVWlIbllyWU42CkpZZTVCVW1ZaVB1RVE1dlFITUVBSm1lVHZhYUFYdDhETjMvWgotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+  name: eks_education-eks-qRI9Niwb
+
+contexts:
+- context:
+    cluster: eks_education-eks-qRI9Niwb
+    user: eks_education-eks-qRI9Niwb
+  name: eks_education-eks-qRI9Niwb
+
+current-context: eks_education-eks-qRI9Niwb
+
+users:
+- name: eks_education-eks-qRI9Niwb
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      command: aws-iam-authenticator
+      args:
+        - "token"
+        - "-i"
+        - "education-eks-qRI9Niwb"
+
+
+************* create the folder **********
+---> mkdir .kube
+---> cd .kube
+---> vi config (past the config file)
+
+
+******** download aws-iam-authenticator *********
+
+---> curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/aws-iam-authenticator
+---> change the permission : chmod 755 aws-iam-authenticator
+---> mv the file : mv aws-iam-authenticator /usr/local/bin
+----> kubectl get nodes/kubectl get po -n kube-system
+---> kubectl get ns
+---> kubectl get po -n kube-system
+--->  kubectl get po -n kube-system -o wide
+*********install ingress controller kubernetes aws eks network loadbalancer******
+
+---> (https://aws.amazon.com/blogs/opensource/network-load-balancer-nginx-ingress-controller-eks/)
+---> (kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-0.32.0/deploy/static/provider/aws/deploy.yaml)
+---> kubectl get ns
+---> kubectl get po -n ingress-nginx
+---> kubectl get po -n ingress-nginx -o wide
+---> kubectl get svc -n ingress-nginx
+---> kubectl get po -n ingress-nginx
+
+
+
+CREATE THE NAME SPEACE 
+
+---> kubectl create ns app1
+---> vi app2.yml 
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: app1
+---> kubectl apply -f app2.yaml   (0/p ::namespace/app1 unchanged)
+---> kubectl create ns app1
+
+
+
+**********deploy nginx deployment in kubernetes******
+
+---> https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/
+
+---> CREATE THE YAML FILE (EX:vi app1.yml)
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: app1
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 5 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+
+---> to delete the pods (kubectl delete po (nginx-deployment-66b6c48dd5-q2lr4) -n app1)
+
+
+
+
+**********create service yaml kubernetes*******
+---> (https://kubernetes.io/docs/concepts/services-networking/service/)
+
+--->create the yaml file (vi app1-svc.yaml)
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: app1-svc
+  namespace: app1
+spec:
+  selector:
+    app: nginx
+  replicas: 5 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+ type: LoadBalancer
+
+---> kubectl get svc -n app1
+---> kubectl scale deployment nginx-deployment --replicas=5 -n app2
+---> kubectl edit deployment nginx-deployment -n app2
+
+
+
+
+
+
+
+
+
+************ INGRESS YAML EXAMPLE**********
+
+---> (https://kubernetes.io/docs/concepts/services-networking/ingress/)
+
+
+
+---> create a yaml file (vi app2-ing.yaml)
+
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+ name: app2-ingress
+ namespace: app2
+ annotations:
+   kubernetes.io/ingress.class: nginx
+spec:
+ rules:
+ - host: app2k8s.anjicloud.xyz.in
+   http:
+     paths:
+     - path:
+       backend:
+         serviceName: app2-svc
+         servicePort: 80
+
+
+
+-------> kubectl apply -f app2-ing.yaml
+-------> kubectl get ing -n app2
+-------> kubectl get svc -n ingress-nginx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
